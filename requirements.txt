@@ -1,0 +1,6 @@
+functions-framework==3.*
+google-cloud
+google-cloud-storage
+google-cloud-bigquery
+gcsfs==0.6.2
+pandas==1.5.*
