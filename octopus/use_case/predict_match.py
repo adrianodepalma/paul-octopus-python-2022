@@ -18,7 +18,6 @@ def predict_match(match_info):
         match_prediction = predict_match_from_historical_results(match_info)
 
     print(INDENTATION, match_prediction, ' (prediction)')
-    print('---------------------------------------------')
     return match_prediction
 
 

@@ -1,16 +1,19 @@
 ##
 # Different country names between files:
 #
-# matches-schedule.csv:                     Iran,       South Korea,    USA
-# historical-results.csv:                   Iran,       South Korea,    United States
-# historical_win-loose-draw_ratios.csv:     Iran,       South Korea,    -
-# ranking.csv:                              IR Iran,    Korea Republic, USA
-# submission.csv:                           Iran,       South Korea,    USA
+# matches-schedule.csv:                     Iran,       South Korea,    USA,            -
+# historical-results.csv:                   Iran,       South Korea,    United States,  Ivory Coast
+# historical_win-loose-draw_ratios.csv:     Iran,       South Korea,    -,              -
+# ranking.csv:                              IR Iran,    Korea Republic, USA,            Côte d'Ivoire
+# submission.csv:                           Iran,       South Korea,    USA,            -
 #
 ##
 country_names_in_ranking = {
     'Iran': 'IR Iran',
-    'South Korea': 'Korea Republic'
+    'Ivory Coast': "Côte d'Ivoire",
+    'North Korea': 'Korea Republic',
+    'South Korea': 'Korea DPR',
+    'United States': 'USA'
 }
 
 country_names_in_results = {
