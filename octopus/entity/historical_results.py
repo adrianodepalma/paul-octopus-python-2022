@@ -6,4 +6,4 @@ class HistoricalResults:
         self.avg_away_score = avg_away_score
 
     def __str__(self):
-        return f"""{self.country1} {round(self.avg_home_score, 2)} x {self.country2} {round(self.avg_away_score, 2)} (historical results)"""
+        return f"""{self.country1} {round(self.avg_home_score, 2)} x {self.country2} {round(self.avg_away_score, 2)} (average)"""

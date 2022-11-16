@@ -32,3 +32,14 @@ Steps to install and configure the project:
     > export GOOGLE_APPLICATION_CREDENTIALS=/Users/login/.config/gcloud/application_default_credentials.json
 
     > export GCLOUD_PROJECT=phoenix-cit
+
+
+## Execution
+
+   To run as web application (cloud function)
+   > functions-framework --target prediction --debug
+
+   http://127.0.0.1:8080/
+   
+   To run as command line
+   > python3 main.py
