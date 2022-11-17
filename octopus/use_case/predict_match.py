@@ -6,6 +6,7 @@ from octopus.repository.historical_results_repository import get_historical_resu
 
 INDENTATION = '         '
 MINIMUM_MATCHES = int(config.config['ALGORITHM']['MINIMUM_MATCHES'])
+RANKING_SCORE_FACTOR = int(config.config['ALGORITHM']['RANKING_SCORE_FACTOR'])
 
 
 def predict_match(match_info):
@@ -22,15 +23,17 @@ def predict_match(match_info):
 
 
 def predict_match_from_ranking(match_info):
-    # adds 1 goal for every 10 positions difference in the ranking
-    ranking_factor = int(match_info.ranking1) - int(match_info.ranking2)
-    winner_score = abs(int(ranking_factor / 10))
-    if ranking_factor < 0:
+    # adds 1 goal for every RANKING_SCORE_FACTOR positions difference in the ranking
+    ranking_difference = int(match_info.ranking1) - int(match_info.ranking2)
+    winner_score = round(abs(ranking_difference) / RANKING_SCORE_FACTOR)
+
+    if ranking_difference < 0:
         country1_score = winner_score
         country2_score = 0
     else:
         country1_score = 0
         country2_score = winner_score
+
     return match.Match(match_info.country1, match_info.country2, country1_score, country2_score)
 
 
