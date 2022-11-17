@@ -79,8 +79,8 @@ def predict(year):
         if int(year) != CURRENT_YEAR:
             points = calculate_points(game, match_prediction)
             total_points += points
-        print('         ', str(game), ' (official result)')
-        print('         ', points, 'points')
+            print('         ', str(game), ' (official result)')
+            print('         ', points, 'points')
         print('---------------------------------------------')
 
     if int(year) != CURRENT_YEAR:

@@ -1,8 +1,14 @@
 # Paul the Octopus
 
-A basic project to use for the Paul the Octopus challenge (World Cup 2022) written in Python. 
+A basic project to use for the Paul the Octopus challenge (World Cup 2022) written in Python and using GCP platform. 
 
 It makes match predictions using the FIFA ranking and historical results of the two teams. 
+
+
+## Requirements
+
+The datasets and historical data are stored in BigQuery tables and CSV files on GCP platform. 
+
 
 ## Getting started
 
@@ -42,4 +48,8 @@ Steps to install and configure the project:
    http://127.0.0.1:8080/
    
    To run as command line
-   > python3 main.py
+   > python3 main.py <year>
+
+   It is mandatory to inform the year. If the year is the current year, it will predict the results for the next World Cup (load matches from the csv file). 
+   Otherwise, it will load the matches from the World Cup year informed e check the predictions and the official resultas.
+       

@@ -1,9 +1,6 @@
 from octopus.config import config
 from octopus.entity import match
 
-from octopus.repository.historical_results_repository import get_historical_results
-
-
 INDENTATION = '         '
 MINIMUM_MATCHES = int(config.config['ALGORITHM']['MINIMUM_MATCHES'])
 RANKING_SCORE_FACTOR = int(config.config['ALGORITHM']['RANKING_SCORE_FACTOR'])
@@ -38,14 +35,8 @@ def predict_match_from_ranking(match_info):
 
 
 def predict_match_from_historical_results(match_info):
-    historical_results_home = get_historical_results(match_info.country1, match_info.country2)
-    historical_results_away = get_historical_results(match_info.country2, match_info.country1)
-    country1_score = (historical_results_home.avg_home_score + historical_results_away.avg_away_score) / 2
-    country2_score = (historical_results_home.avg_away_score + historical_results_away.avg_home_score) / 2
-    debug_match(match_info.country1, country1_score, match_info.country2, country2_score, ' (average score)')
-
-    country1_score = country1_score * match_info.historical_ratio.wins * 2
-    country2_score = country2_score * match_info.historical_ratio.losses * 2
+    country1_score = match_info.historical_results.avg_home_score * match_info.historical_ratio.wins * 2
+    country2_score = match_info.historical_results.avg_away_score * match_info.historical_ratio.losses * 2
     debug_match(match_info.country1, country1_score, match_info.country1, country2_score, ' (average * ratio)')
 
     return match.Match(match_info.country1, match_info.country2, round(country1_score), round(country2_score))
